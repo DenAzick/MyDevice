@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyDevice.Context;
+using MyDevice.Managers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,11 +14,13 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddDbContext<DeviceAppContext>(options =>
 //{
-//    options.UseNpgsql(builder.Configuration.GetConnectionString("Server=device_db;Port=5432;Database=device_db;User Id=postgres;Password=postgres;"));
+//    options.UseNpgsql(builder.Configuration.GetConnectionString("mydevice"));
 //});
 
 builder.Services.AddDbContext<DeviceAppContext>();
 
+
+builder.Services.AddScoped<DeviceManager>();
 
 var app = builder.Build();
 

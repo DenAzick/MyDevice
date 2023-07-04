@@ -17,7 +17,7 @@ public class DeviceController : ControllerBase
     }
 
 
-    [HttpPost("Create")]
+    [HttpPost]
     public async Task<IActionResult> CreateDevice([FromBody] CreateModelDto model)
     {
         if (ModelState.IsValid)
